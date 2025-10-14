@@ -60,7 +60,7 @@ export const Hero = () => {
                 size="lg"
                 className="border-2 border-transparent bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl"
               >
-                <span>Become a Site Host</span>
+                <span>Become a Partner</span>
               </Button>
               <Button
                 size="lg"
