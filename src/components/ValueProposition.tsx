@@ -7,19 +7,19 @@ const steps = [
   {
     number: "1",
     title: "Start",
-    description: "We start by assessing your electrical infrastructure and understanding your specific business needs. Then we design a creative solution that perfectly aligns with your property requirements, including tailored parking stall and wall designs to complement your business aesthetics.",
+    description: "Assess your electrical infrastructure\nUnderstand your specific business needs\nDesign a tailored solution for your property\nCreate custom parking stall and wall designs",
     image: "/stock-photos/consultation-site-visit.png"
   },
   {
     number: "2",
     title: "Install",
-    description: "Our expert electricians perform necessary infrastructure upgrades to ensure a smooth installation process. Once the groundwork is complete, we proceed to order and install the charging terminals, seamlessly integrating them into your property.",
+    description: "Perform necessary infrastructure upgrades\nComplete all groundwork preparation\nOrder and install charging terminals\nSeamlessly integrate into your property",
     image: "/stock-photos/installation.png"
   },
   {
     number: "3",
     title: "Support",
-    description: "Following installation, our charging terminals are connected to the operational management software, forming a reliable network. Drivers can find and book your charger through the HoneyBadger mobile app. Plus, we provide zero-cost maintenance and ongoing support for optimal performance.",
+    description: "Connect to operational management software\nEnable driver booking via HoneyBadger app\nProvide zero-cost maintenance\nOffer ongoing support for optimal performance",
     image: "/stock-photos/network-connection.png"
   }
 ];
@@ -77,41 +77,23 @@ export const ValueProposition = () => {
                 ref={el => refs.current[index] = el}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className={`group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-700
+                className={`group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                {/* Background Image with Overlay */}
-                <div 
-                  className="absolute inset-0 transition-all duration-500 ease-out"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${step.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: isHovered ? 1 : 0,
-                    transform: isHovered ? 'scale(1.05)' : 'scale(1)'
-                  }}
-                />
-                
                 {/* Content */}
                 <div className="relative p-10 z-10">
                   {/* Number and Title */}
                   <div className="flex items-baseline gap-4 mb-6">
-                    <span className={`text-3xl font-bold transition-colors duration-500 ${
-                      isHovered ? 'text-white/80' : 'text-foreground'
-                    }`}>{step.number}</span>
-                    <h3 className={`text-2xl font-bold transition-colors duration-500 ${
-                      isHovered ? 'text-white' : 'text-foreground'
-                    }`}>{step.title}</h3>
+                    <span className="text-3xl font-bold text-foreground">{step.number}</span>
+                    <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
                   </div>
                   
                   {/* Description */}
-                  <p className={`text-xl leading-relaxed transition-colors duration-500 ${
-                    isHovered ? 'text-white/90' : 'text-foreground'
-                  }`}>
+                  <div className="text-lg leading-relaxed text-foreground whitespace-pre-line">
                     {step.description}
-                  </p>
+                  </div>
                 </div>
               </div>
             );
@@ -120,9 +102,6 @@ export const ValueProposition = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <p className="text-lg text-foreground mb-6">
-            Reliable. Easy. Fast.
-          </p>
           <Button
             onClick={() => navigate('/host-charger')}
             size="lg"

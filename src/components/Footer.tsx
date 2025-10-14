@@ -15,7 +15,7 @@ export const Footer = () => {
 
       <div className="container mx-auto px-6 py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           
           {/* Company Info */}
           <div className="space-y-6">
@@ -26,7 +26,7 @@ export const Footer = () => {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-foreground leading-relaxed">
               Zero-cost EV charging solutions that power the future.
             </p>
             <div className="flex space-x-4">
@@ -42,50 +42,72 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Solutions */}
+          {/* Drivers */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground">Solutions</h3>
+            <h3 className="text-lg font-semibold text-foreground">Drivers</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/host-charger" className="text-muted-foreground hover:text-primary transition-colors">
-                  Host a Charger
+                <a href="/find-charger" className="text-foreground hover:text-primary transition-colors">
+                  Find a Charger
                 </a>
               </li>
               <li>
-                <a href="/find-charger" className="text-muted-foreground hover:text-primary transition-colors">
-                  Find a Charger
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Mobile App
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Charging Guide
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Partners */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground">Support</h3>
+            <h3 className="text-lg font-semibold text-foreground">Partners</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Help Center
+                <a href="/host-charger" className="text-foreground hover:text-primary transition-colors">
+                  Host a Charger
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Installation Guide
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Property Solutions
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Mobile App
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Fleet Solutions
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* About */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-foreground">About</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Mission
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  24/7 Support
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  System Status
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-foreground hover:text-primary transition-colors">
+                  News
                 </a>
               </li>
             </ul>
@@ -98,9 +120,19 @@ export const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-foreground">24/7 Support</p>
-                  <a href="tel:+1-800-CHARGE-1" className="text-foreground hover:text-primary transition-colors font-medium">
-                    1-800-CHARGE-1
+                  <p className="text-foreground">Office</p>
+                  <a href="tel:+12364800827" className="text-foreground hover:text-primary transition-colors font-medium">
+                    (236) 480-0827
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-foreground">Support</p>
+                  <a href="tel:+18778360242" className="text-foreground hover:text-primary transition-colors font-medium">
+                    (877) 836-0242
                   </a>
                 </div>
               </div>
@@ -108,9 +140,9 @@ export const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-foreground">General Inquiries</p>
-                  <a href="mailto:info@badgercharging.ca" className="text-foreground hover:text-primary transition-colors font-medium">
-                    info@badgercharging.ca
+                  <p className="text-foreground">Email</p>
+                  <a href="mailto:support@badgercharging.ca" className="text-foreground hover:text-primary transition-colors font-medium">
+                    support@badgercharging.ca
                   </a>
                 </div>
               </div>
@@ -118,9 +150,9 @@ export const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-foreground">Headquarters</p>
+                  <p className="text-foreground">Location</p>
                   <p className="text-foreground">
-                    Vancouver, Canada
+                    Vancouver, BC
                   </p>
                 </div>
               </div>
@@ -130,7 +162,7 @@ export const Footer = () => {
 
         
         <div className="flex flex-col lg:flex-row justify-between items-center pt-8 border-t border-border space-y-4 lg:space-y-0">
-          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-foreground">
             <p>&copy; {currentYear} HoneyBadger Charging. All rights reserved.</p>
             <div className="flex space-x-6">
               <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
@@ -139,7 +171,7 @@ export const Footer = () => {
             </div>
           </div>
           
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+          <div className="flex items-center space-x-2 text-sm text-foreground">
             <span>Powered by clean energy</span>
             <Zap className="w-4 h-4 text-primary animate-pulse" />
           </div>

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     icon: ShieldCheck,
-    title: "Reliable\nCharging",
+    title: "Reliable",
     heading: "Built for Performance",
     description:
       "HoneyBadger's chargers are built with the latest technology and undergo rigorous testing to ensure optimal performance and durability. Say goodbye to any worries about malfunctions or disruptions while charging.",
@@ -13,7 +13,7 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: "Smart\nSystem",
+    title: "Easy",
     heading: "Seamless Control",
     description:
       "HoneyBadger chargers come equipped with a large LCD display for effortless user navigation. Our mobile app enhances the charging experience by enabling easy pre-booking, convenient mobile wallet integration, and live charging status updates.",
@@ -22,7 +22,7 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Power\nSpeed",
+    title: "Fast",
     heading: "Power Up Quickly",
     description:
       "Experience the future of charging with solutions designed to deliver power up to 2.5x faster than competing Level 2 chargers, empowering drivers to get back on the road quickly and hassle-free.",
