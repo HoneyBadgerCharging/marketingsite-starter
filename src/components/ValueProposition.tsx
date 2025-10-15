@@ -1,6 +1,5 @@
 import { useState as useCardHover } from "react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRight } from "lucide-react";
 
@@ -41,7 +40,6 @@ const steps = [
 ];
 
 export const ValueProposition = () => {
-  const navigate = useNavigate();
   const [visibleSteps, setVisibleSteps] = useState<boolean[]>(new Array(steps.length).fill(false));
   const refs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -124,7 +122,7 @@ export const ValueProposition = () => {
         {/* CTA Section */}
         <div className="text-center">
           <Button
-            onClick={() => navigate('/host-charger')}
+            onClick={() => window.location.href = '/host-charger'}
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold rounded-xl"
           >

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -37,8 +36,6 @@ const blogPosts = [
 ];
 
 export const BlogSection = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="py-24 bg-muted/50">
       <div className="container mx-auto px-6">
@@ -51,7 +48,7 @@ export const BlogSection = () => {
             <Card
               key={post.id}
               className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-2xl overflow-hidden"
-              onClick={() => navigate(`/blog/${post.slug}`)}
+              onClick={() => window.location.href = `/blog/${post.slug}`}
             >
               <div className="relative overflow-hidden">
                 <img
@@ -86,7 +83,7 @@ export const BlogSection = () => {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => navigate("/blog")}
+            onClick={() => window.location.href = "/blog"}
             className="group rounded-xl"
           >
             View All Articles

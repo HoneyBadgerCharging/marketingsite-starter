@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { FindCharger as FindChargerComponent } from '@/components/pages/FindCharger';
+
+const title = "Find EV Chargers | HoneyBadger Charging Network";
+const description = "Locate HoneyBadger EV charging stations near you. Find available chargers, check real-time status, and plan your electric vehicle journey with our comprehensive charging network.";
+---
+
+<Layout title={title} description={description}>
+  <!-- FindCharger component with full interactivity -->
+  <FindChargerComponent client:load />
+</Layout>

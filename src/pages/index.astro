@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { ValueProposition } from '@/components/ValueProposition';
+import { AppPromo } from '@/components/AppPromo';
+import { Experience } from '@/components/Experience';
+import { TrustSection } from '@/components/TrustSection';
+import { BlogSection } from '@/components/BlogSection';
+import { Footer } from '@/components/Footer';
+
+const title = "HoneyBadger Charging | Zero-Cost EV Charging Solutions";
+const description = "Transform your property with zero-cost EV charging stations. Free installation, maintenance, and revenue generation. Join the sustainable energy revolution with HoneyBadger Charging.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Navigation - Interactive component for dropdowns -->
+  <Navbar client:load />
+  
+  <!-- Hero Section - Interactive for GSAP parallax -->
+  <Hero client:load />
+  
+  <!-- Value Proposition - Interactive for animations -->
+  <ValueProposition client:visible />
+  
+  <!-- App Promo - Can be static initially -->
+  <AppPromo client:visible />
+  
+  <!-- Experience Section - Interactive for GSAP parallax -->
+  <Experience client:visible />
+  
+  <!-- Trust Section - Minimal interactivity -->
+  <TrustSection client:visible />
+  
+  <!-- Blog Section - Minimal interactivity -->
+  <BlogSection client:visible />
+  
+  <!-- Footer - Mostly static -->
+  <Footer client:idle />
+</Layout>

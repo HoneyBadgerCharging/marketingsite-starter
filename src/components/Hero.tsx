@@ -2,14 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { AppleIcon } from "./icons/AppleIcon";
 import { AndroidIcon } from "./icons/AndroidIcon";
-import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
-  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const backgroundRef = useRef<HTMLDivElement>(null);
 

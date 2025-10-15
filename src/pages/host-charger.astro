@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { HostCharger as HostChargerComponent } from '@/components/pages/HostCharger';
+
+const title = "Host EV Chargers | Earn Revenue with HoneyBadger Charging";
+const description = "Transform your property into a revenue-generating EV charging destination. Zero-cost installation, maintenance included. Join the sustainable energy revolution and earn with HoneyBadger Charging.";
+---
+
+<Layout title={title} description={description}>
+  <!-- HostCharger component with full interactivity -->
+  <HostChargerComponent client:load />
+</Layout>

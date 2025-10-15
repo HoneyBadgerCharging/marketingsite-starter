@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { Search, ChevronDown } from "lucide-react";
 import { LanguageSelect } from "@/components/ui/language-select";
 import SearchDialog from "@/components/ui/search-dialog";
@@ -11,7 +10,10 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const navigate = useNavigate();
+  
+  const navigateTo = (path: string) => {
+    window.location.href = path;
+  };
 
   // Handle scroll
   useEffect(() => {
@@ -62,7 +64,7 @@ export const Navbar = () => {
           {/* Logo */}
           <div 
             className="cursor-pointer flex-shrink-0"
-            onClick={() => navigate('/')}
+            onClick={() => navigateTo('/')}
           >
             <img 
               src="/logo.webp" 
@@ -155,7 +157,7 @@ export const Navbar = () => {
                   <div className="grid grid-cols-3 gap-6" style={{ width: '100%', maxWidth: '100%' }}>
                     <button
                       className="flex items-start text-left p-4 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary/50"
-                      onClick={() => navigate('/find-charger')}
+                      onClick={() => navigateTo('/find-charger')}
                     >
                       <div>
                         <div className="font-medium text-lg mb-2">Find a Charger</div>
@@ -181,7 +183,7 @@ export const Navbar = () => {
                   <div className="grid grid-cols-3 gap-6" style={{ width: '100%', maxWidth: '100%' }}>
                     <button
                       className="flex items-start text-left p-4 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary/50"
-                      onClick={() => navigate('/host-charger')}
+                      onClick={() => navigateTo('/host-charger')}
                     >
                       <div>
                         <div className="font-medium text-lg mb-2">Host a Charger</div>
