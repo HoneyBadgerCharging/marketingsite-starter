@@ -2,24 +2,40 @@ import { useState as useCardHover } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 const steps = [
   {
     number: "1",
     title: "Start",
-    description: "Assess your electrical infrastructure\nUnderstand your specific business needs\nDesign a tailored solution for your property\nCreate custom parking stall and wall designs",
+    items: [
+      "Assess your electrical infrastructure",
+      "Understand your specific business needs",
+      "Design a tailored solution for your property",
+      "Create custom parking stall and wall designs"
+    ],
     image: "/stock-photos/consultation-site-visit.png"
   },
   {
     number: "2",
     title: "Install",
-    description: "Perform necessary infrastructure upgrades\nComplete all groundwork preparation\nOrder and install charging terminals\nSeamlessly integrate into your property",
+    items: [
+      "Perform necessary infrastructure upgrades",
+      "Complete all groundwork preparation",
+      "Order and install charging terminals",
+      "Seamlessly integrate into your property"
+    ],
     image: "/stock-photos/installation.png"
   },
   {
     number: "3",
     title: "Support",
-    description: "Connect to operational management software\nEnable driver booking via HoneyBadger app\nProvide zero-cost maintenance\nOffer ongoing support for optimal performance",
+    items: [
+      "Connect to operational management software",
+      "Enable driver booking via HoneyBadger app",
+      "Provide zero-cost maintenance",
+      "Offer ongoing support for optimal performance"
+    ],
     image: "/stock-photos/network-connection.png"
   }
 ];
@@ -91,9 +107,14 @@ export const ValueProposition = () => {
                   </div>
                   
                   {/* Description */}
-                  <div className="text-lg leading-relaxed text-foreground whitespace-pre-line">
-                    {step.description}
-                  </div>
+                  <ul className="text-lg leading-relaxed text-foreground space-y-2">
+                    {step.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             );
