@@ -1,5 +1,9 @@
 import { ShieldCheck, Smartphone, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -36,6 +40,7 @@ export const Experience = () => {
     new Array(features.length).fill(false)
   );
   const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observers = refs.current.map((ref, index) => {
@@ -63,12 +68,44 @@ export const Experience = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (backgroundRef.current) {
+      // Create subtle parallax effect for the background image
+      gsap.fromTo(
+        backgroundRef.current,
+        {
+          yPercent: -30,
+        },
+        {
+          yPercent: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: backgroundRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 2,
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <section className="py-32 md:py-48 relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 z-0"
+        ref={backgroundRef}
+        className="absolute z-0"
         style={{
+          top: '-15%',
+          left: 0,
+          right: 0,
+          bottom: '-15%',
+          height: '130%',
           backgroundImage: "url(/charging-station.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -94,7 +131,7 @@ export const Experience = () => {
               <div
                 key={index}
                 ref={(el) => (refs.current[index] = el)}
-                className={`relative p-8 rounded-xl border border-white/[0.08] hover:border-white/[0.15] backdrop-blur-xl transition-all duration-700 overflow-hidden group
+                className={`relative p-8 rounded-xl border border-white/[0.08] hover:border-white/[0.15] backdrop-blur-xl transition-all duration-700 overflow-hidden group ${
                   isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                 }`}
                 style={{

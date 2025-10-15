@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { AppleIcon } from "./icons/AppleIcon";
 import { AndroidIcon } from "./icons/AndroidIcon";
 import { useNavigate } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,13 +20,45 @@ export const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (backgroundRef.current) {
+      // Create subtle parallax effect for the background image
+      gsap.fromTo(
+        backgroundRef.current,
+        {
+          yPercent: -35,
+        },
+        {
+          yPercent: 5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: backgroundRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 z-0"
+        ref={backgroundRef}
+        className="absolute z-0"
         style={{
+          top: '-20%',
+          left: 0,
+          right: 0,
+          bottom: '-20%',
+          height: '140%',
           backgroundImage: "url(/hero-background-chargers.png)",
           backgroundSize: "cover",
           backgroundPosition: "center"
